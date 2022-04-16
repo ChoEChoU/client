@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import MainNavigation from './components/MainNavigation';
+import GlobalStyle from './GlobalStyle';
+import MainPage from './pages/Main';
+import ProductPage from './pages/ProductPage';
+import ChartPage from './pages/ChartPage';
+import IssuePage from './pages/IssuePage';
+import MyPage from './pages/MyPage';
+
+/*eslint-disable*/
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <MainNavigation />
+
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/chart' element={<ChartPage />} />
+        <Route path='/product' element={<ProductPage />} />
+        <Route path='/issue' element={<IssuePage />} />
+        <Route path='/mypage' element={<MyPage />} />
+      </Routes>
     </div>
   );
 }
